@@ -1,0 +1,180 @@
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+main {
+    width: 600px;
+    height: 400px;
+    margin: 30px auto;
+    background-color: #eee;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.E,
+.L {
+    width: 200px;
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+    grid-template-rows: repeat(7, 50px);
+    position: relative;
+}
+
+div {
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+div:first-child {
+    grid-column: span 1;
+    grid-row: 1/8;
+}
+
+.E div:nth-child(2) {
+    grid-column: 2/5;
+    grid-row: 1/2;
+}
+
+.E div:nth-child(3) {
+    grid-column: 2/5;
+    grid-row: 4/5;
+}
+
+.E div:nth-child(4) {
+    grid-column: 2/5;
+    grid-row: 7 / span 1;
+}
+
+.L div:nth-child(2) {
+    grid-column: 2/5;
+    grid-row: 7/8;
+}
+
+.L span {
+    position: absolute;
+    display: inline-block;
+    background-color: rgb(254, 166, 4);
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    grid-column: 4;
+    grid-row: 7;
+    animation-name: anima-l;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    /* animation-delay: 0s; */
+    /* animation-fill-mode: both; */
+}
+
+.E span {
+    position: absolute;
+    display: inline-block;
+    background-color: rgb(254, 166, 4);
+    width: 30px;
+    height: 30px;
+    margin: 10px;
+    grid-column: 4;
+    grid-row: 1;
+    animation-name: anima-e;
+    animation-duration: 8s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: 4s;
+    opacity: 0;
+}
+
+@keyframes anima-l {
+    0% {
+        transform: translate(0, 0) scale(0);
+    }
+    5% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    12.5% {
+        transform: translate(-150px, 0);
+    }
+
+    25% {
+        transform: translate(-150px, -175px);
+    }
+
+    37.5% {
+        transform: translate(-150px, -300px);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(-150px, -300px) scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(-150px, -300px) scale(0);
+    }
+}
+
+@keyframes anima-e {
+    0% {
+        transform: translate(0, 0) scale(0);
+        opacity: 1;
+    }
+
+    4.54% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    9.09% {
+        transform: translate(-150px, 0);
+    }
+
+    13.63% {
+        transform: translate(-150px, 150px);
+    }
+
+    18.17% {
+        transform: translate(0px, 150px);
+    }
+
+    22.71% {
+        transform: translate(-150px, 150px);
+    }
+
+    27.25% {
+        transform: translate(-150px, 300px);
+    }
+
+    31.79% {
+        transform: translate(0px, 300px);
+    }
+
+    36.33% {
+        transform: translate(-150px, 300px);
+    }
+
+    40.87% {
+        transform: translate(-150px, 0px);
+    }
+
+    45.41% {
+        transform: translate(0px, 0px) scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: translate(0px, 0px) scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 0;
+    }
+}
